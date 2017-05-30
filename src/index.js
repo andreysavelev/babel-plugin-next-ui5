@@ -98,7 +98,7 @@ exports.default = function ({ types: t })
             const program = path.hub.file.ast.program;
 
             const defineCallArgs = [
-                t.stringLiteral(state.relativeFilePathWithoutExtension),
+                //t.stringLiteral(state.relativeFilePathWithoutExtension),
                 t.arrayExpression(state.imports.map(i => t.stringLiteral(i.src))),
                 t.functionExpression(null, state.imports.map(i => t.identifier(i.name)), t.blockStatement([
                     t.expressionStatement(t.stringLiteral("use strict")),
