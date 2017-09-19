@@ -1,6 +1,4 @@
-# To get the full project example, please visit [babel-plugin-ui5-example](https://github.com/MagicCube/babel-plugin-ui5-example).
-
-# babel-plugin-ui5 for Babel 6
+# babel-plugin-transform-ui5 for Babel 6
 An UNOFFICIAL experimental Babel transformer plugin for SAP UI5.
 It allows you to develop SAP UI5 applications by using the latest [ES6](http://babeljs.io/docs/learn-es2015/), including new syntax and objective oriented programming technology.
 
@@ -10,12 +8,9 @@ It allows you to develop SAP UI5 applications by using the latest [ES6](http://b
 + UI5's `metadata` field
 + Static methods and fields
 + Most of ES6 features supported by Babel, like arrow functions, spreading, default value of parameters, etc.
-+ Packed up in a preset named `babel-preset-ui5` or `ui5` for short.
 
 ## Babel version
 Currently this version only supports `Babel 6`.
-
-If you still want to use Babel 5 in your project, please try my previous project [babel-ui5-plugin](https://github.com/MagicCube/babel-ui5-plugin).
 
 ## Usage
 ### 1. Install the preset
@@ -53,7 +48,9 @@ Suppose that in your project, all the source codes are stored in `src` folder, a
 ```
 ### 1. Configure ui5sk.properties
 Make sure the special properties file is in root of your project
+```properties
 NAMESPACE=example.your.namespace
+```
 
 ### 2. Configure packages.json
 Make sure the `babel-preset-ui5` is in your own `package.json`.
