@@ -21,7 +21,7 @@
     "type": "git",
     "url": "git+https://github.com/andreysavelev/babel-plugin-next-ui5.git"
   },
-  "author": "Henry Li <henry.li03@sap.com>",
+  "author": "Andrew Savelev",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/andreysavelev/babel-plugin-next-ui5"
