@@ -51,8 +51,11 @@ Suppose that in your project, all the source codes are stored in `src` folder, a
     ├── gulpfile.js
     └── package.json
 ```
+### 1. Configure ui5sk.properties
+Make sure the special properties file is in root of your project
+NAMESPACE=example.your.namespace
 
-### 1. Configure packages.json
+### 2. Configure packages.json
 Make sure the `babel-preset-ui5` is in your own `package.json`.
 ```js
 {
@@ -78,11 +81,10 @@ $ npm install --save-dev del gulp gulp-babel gulp-concat gulp-rename gulp-uglify
 $ npm install --save-dev babel-preset-ui5
 ```
 
-### 2. Configure .babelrc
+### 3. Configure .babelrc
 Add a `.babelrc` in your project root folder.
 ```js
 {
-    sourceRoot: "./src",
     presets: [
         "ui5"
     ]
@@ -90,7 +92,7 @@ Add a `.babelrc` in your project root folder.
 ```
 > The `sourceRoot` property can helps the plugin to output the right namespace.
 
-### 3. Configure gulpfile.js
+### 4. Configure gulpfile.js
 Add a `gulpfile.js` in your project root folder.
 ```js
 const babel = require("gulp-babel");
@@ -145,7 +147,7 @@ gulp.task("uglify-js", () => {
 });
 ```
 
-### 4. Build with Webpack
+### 5. Build with Webpack
 Please take a look at [ui5-loader](https://github.com/MagicCube/ui5-loader);
 
 
@@ -157,10 +159,6 @@ JSON file.
 
 Please also take a look at [babel-plugin-ui5-example](https://github.com/MagicCube/babel-plugin-ui5-example),
 you'll find the answer.
-
-
-## Example
-To get the full project example, please visit [babel-plugin-ui5-example](https://github.com/MagicCube/babel-plugin-ui5-example).
 
 ### ES6 Codes
 ``` javascript
@@ -179,19 +177,16 @@ export default class Animal extends ManagedObject
         }
     }
 
-    constructor(...args)
-    {
+    constructor(...args) {
         super(...args);
         // TODO: Add your own construction code here.
     }
 
-    init()
-    {
+    init() {
         // TODO: Add your own initialization code here.
 	}
 
-    callMe()
-    {
+    callMe() {
         alert(`I'm a ${this.getType()}.
         Call me ${this.getNickName()}.`);
     }
@@ -206,20 +201,17 @@ import Animal from "./Animal";
 
 export default class Cat extends Animal
 {
-    init()
-    {
+    init() {
         super.init();
         this.setType("Cat");
     }
 
-    callMe()
-    {
+    callMe() {
         super.callMe();
         alert("Miao~");
     }
 
-    static createCat(nickName)
-    {
+    static createCat(nickName) {
         const cat = new example.obj.Cat({
             nickName
         });
@@ -236,7 +228,7 @@ export default class Cat extends Animal
 sap.ui.define(["sap/ui/base/ManagedObject"], function (ManagedObject) {
     "use strict";
 
-    return ManagedObject.extend("example.obj.Animal", {
+    return ManagedObject.extend("example.your.namespace.Animal", {
         metadata: {
             properties: {
                 type: { type: "string" },
@@ -267,7 +259,7 @@ sap.ui.define(["sap/ui/base/ManagedObject"], function (ManagedObject) {
 sap.ui.define(["./Animal"], function (Animal) {
     "use strict";
 
-    return Animal.extend("example.obj.Cat", {
+    return Animal.extend("example.your.namespace.Cat", {
         init: function init() {
             Animal.prototype.init.apply(this, []);
             this.setType("Cat");
@@ -279,16 +271,13 @@ sap.ui.define(["./Animal"], function (Animal) {
     });
 });
 
-example.obj.Cat.createCat = function (nickName) {
+example.your.namespace.createCat = function (nickName) {
     "use strict";
 
-    var cat = new example.obj.Cat({
+    var cat = new example.your.namespace.Cat({
         nickName: nickName
     });
     return cat;
 };
 
 ```
-
-### Full example
-To get the full project example, please visit [babel-plugin-ui5-example](https://github.com/MagicCube/babel-plugin-ui5-example).
