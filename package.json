@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-next-ui5",
-  "version": "7.0.1",
+  "version": "7.0.2",
   "description": "An UNOFFICIAL experimental Babel plugin for SAP UI5.",
   "main": "lib/index.js",
   "keywords": [
