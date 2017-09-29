@@ -15,24 +15,22 @@ Currently this version only supports `Babel 6`.
 ## Usage
 ### 1. Install the preset
 ```
-$ npm install --save-dev babel-preset-ui5
+$ npm install --save-dev babel-preset-next-ui5
 ```
-> `babel-plugin-ui5` require a bunch of plugins including `babel-preset-es2015` and `babel-plugin-syntax-class-properties`.
+> `babel-plugin-next-ui5` require a bunch of plugins including `babel-preset-es2015` and `babel-plugin-syntax-class-properties`.
 
 > Although you can install `babel-plugin-ui5` and its dependencies directly,
 we strongly recommend to install via `babel-preset-ui5`.
 
 ### 2. Configure .babelrc
-Add `ui5` to the `presets`.
+Add `next-ui5` to the `presets`.
 ```json
 {
-  "presets": ["ui5"]
+  "presets": ["next-ui5"]
 }
 ```
 
 ## Usage with Gulp *(strongly recommended)*
-
-Suppose that in your project, all the source codes are stored in `src` folder, and all the compiled codes will later be put in `assets` folder.
 
 ```
 <your-ui5-project>
@@ -53,13 +51,13 @@ NAMESPACE=example.your.namespace
 ```
 
 ### 2. Configure packages.json
-Make sure the `babel-preset-ui5` is in your own `package.json`.
+Make sure the `babel-preset-next-ui5` is in your own `package.json`.
 ```js
 {
     ...
     "devDependencies": {
         "babel-cli": "^6.7.5",
-        "babel-preset-ui5": "^6",
+        "babel-preset-next-ui5": "^6",
         "del": "^2.2.0",
         "gulp": "^3.9.1",
         "gulp-babel": "^6.1.2",
@@ -75,7 +73,7 @@ If you don't, please execute the following commands.
 ```
 $ npm install --save-dev babel-cli
 $ npm install --save-dev del gulp gulp-babel gulp-concat gulp-rename gulp-uglify run-sequence
-$ npm install --save-dev babel-preset-ui5
+$ npm install --save-dev babel-preset-next-ui5
 ```
 
 ### 3. Configure .babelrc
@@ -83,11 +81,10 @@ Add a `.babelrc` in your project root folder.
 ```js
 {
     presets: [
-        "ui5"
+        "next-ui5"
     ]
 }
 ```
-> The `sourceRoot` property can helps the plugin to output the right namespace.
 
 ### 4. Configure gulpfile.js
 Add a `gulpfile.js` in your project root folder.
@@ -153,9 +150,6 @@ SAP UI5 supports Modulization through a mechanism called `library`. With my anot
 Gulp plugin [gulp-ui5-lib](https://github.com/MagicCube/gulp-ui5-lib), you're
 now able to compile hundreds of JavaScript files into just one library preload
 JSON file.
-
-Please also take a look at [babel-plugin-ui5-example](https://github.com/MagicCube/babel-plugin-ui5-example),
-you'll find the answer.
 
 ### ES6 Codes
 ``` javascript
