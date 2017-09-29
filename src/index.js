@@ -87,8 +87,6 @@ exports.default = function ({ types: t })
                 ]))
             ];
 
-            console.log('state', state);
-
             const defineCall = t.callExpression(t.identifier("sap.ui.define"), defineCallArgs);
             if (state.leadingComments) {
                 defineCall.leadingComments = state.leadingComments;
